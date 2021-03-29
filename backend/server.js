@@ -3,12 +3,15 @@ import path from 'path';
 import colors from 'colors';
 import dotenv from 'dotenv';
 
+import connectDB from './config/db.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 
 // import Routes from './routes/whateverRoute.js';
 import userRoutes from './routes/userRoutes.js';
 
 dotenv.config();
+
+connectDB();
 
 const app = express();
 
