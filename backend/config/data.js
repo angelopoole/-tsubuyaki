@@ -1,4 +1,5 @@
 import faker from 'faker';
+import bcrypt from 'bcryptjs';
 
 const users = [
 	{
@@ -12,13 +13,13 @@ const users = [
 		followers: [],
 		location: faker.address.city(),
 		birthDate: faker.date.recent(),
-		isAdmin: false,
+		isAdmin: true,
 	},
 	{
 		name: faker.name.findName(),
 		username: faker.internet.userName(),
 		email: faker.internet.email(),
-		password: faker.internet.password(),
+		password: bcrypt.hashSync('123456', 10),
 		avatar: faker.internet.avatar(),
 		bio: faker.lorem.sentence(),
 		following: [],
@@ -31,7 +32,7 @@ const users = [
 		name: faker.name.findName(),
 		username: faker.internet.userName(),
 		email: faker.internet.email(),
-		password: faker.internet.password(),
+		password: bcrypt.hashSync('123456', 10),
 		avatar: faker.internet.avatar(),
 		bio: faker.lorem.sentence(),
 		following: [],
@@ -42,4 +43,22 @@ const users = [
 	},
 ];
 
-export default users;
+const posts = [
+	{
+		text: faker.lorem.paragraph(),
+	},
+	{
+		text: faker.lorem.paragraph(),
+	},
+	{
+		text: faker.lorem.paragraph(),
+	},
+	{
+		text: faker.lorem.paragraph(),
+	},
+	{
+		text: faker.lorem.paragraph(),
+	},
+];
+
+export { users, posts };
