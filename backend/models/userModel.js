@@ -42,6 +42,7 @@ const userSchema = mongoose.Schema(
 			default: false,
 		},
 		posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Posts' }],
+		//user should have an array of posts that they've made
 	},
 	{
 		timestamps: true,
