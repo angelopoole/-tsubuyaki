@@ -23,9 +23,22 @@ const importData = async () => {
 			return { ...post, user: adminUser };
 		});
 
-		const postsByUser = await User.findById(adminUser).populate('posts');
-
 		await Post.insertMany(sampleposts);
+
+		const populatePosts = async () => {
+			let allPosts = await Post.find({});
+
+			for (const post of allPosts) {
+				const user = await User.findById(post.user);
+				user.posts.push(post);
+				user.save();
+			}
+		};
+		await populatePosts();
+
+		let admin = await User.findById(adminUser);
+		console.log(admin);
+		// await User.findById(adminUser).populate('posts');
 		console.log('Data Imported!'.green.inverse);
 		process.exit();
 	} catch (error) {
