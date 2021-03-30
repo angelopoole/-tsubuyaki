@@ -8,6 +8,7 @@ import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 
 // import Routes from './routes/whateverRoute.js';
 import userRoutes from './routes/userRoutes.js';
+import postRoutes from './routes/postRoutes.js';
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ app.use(express.json());
 
 //use imported routes at url ->
 app.use('/api/users', userRoutes);
+app.use('/api/posts', postRoutes);
 
 const __dirname = path.resolve();
 

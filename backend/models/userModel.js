@@ -28,8 +28,10 @@ const userSchema = mongoose.Schema(
 		bio: {
 			type: String,
 		},
-		followers: [],
-		following: [],
+		followInformation: {
+			followers: [],
+			following: [],
+		},
 		location: {
 			type: String,
 		},
@@ -41,7 +43,7 @@ const userSchema = mongoose.Schema(
 			required: true,
 			default: false,
 		},
-		posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Posts' }],
+		posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }],
 		//user should have an array of posts that they've made
 	},
 	{

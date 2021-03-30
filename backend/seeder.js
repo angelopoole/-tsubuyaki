@@ -23,6 +23,8 @@ const importData = async () => {
 			return { ...post, user: adminUser };
 		});
 
+		const postsByUser = await User.findById(adminUser).populate('posts');
+
 		await Post.insertMany(sampleposts);
 		console.log('Data Imported!'.green.inverse);
 		process.exit();
