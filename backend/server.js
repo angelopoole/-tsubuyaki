@@ -16,8 +16,6 @@ connectDB();
 
 const app = express();
 
-console.log(typeof app);
-
 app.use(express.json());
 
 //use imported routes at url ->

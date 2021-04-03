@@ -1,8 +1,12 @@
 import express from 'express';
 const router = express.Router();
-import { getUsers, getUserById } from '../controllers/userController.js';
+import {
+	getUsers,
+	getUserById,
+	createUser,
+} from '../controllers/userController.js';
 // :id = var
-router.route('/').get(getUsers);
+router.route('/').get(getUsers).post(createUser);
 
 router.route('/:id').get(getUserById);
 

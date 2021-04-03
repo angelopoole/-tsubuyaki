@@ -7,13 +7,20 @@ import User from '../models/userModel.js';
 const getUsers = asyncHandler(async (req, res) => {
 	const users = await User.find({});
 	debugger;
-	console.log('get all users');
+
 	res.json(users);
 });
 
-// @desc    :create user:
-// @route   ::
-// @access  ::
+// @desc    :Register new user:
+// @route   :/api/users:
+// @access  :Public:
+const createUser = asyncHandler(async (req, res) => {
+	// form inputs require username and password to create a base profile.
+	//name is changeable, username is not.
+	const { username, name, email, password } = req.body;
+	console.log(name, username, email, password);
+	console.log(req);
+});
 
 // @desc    :get user by id:
 // @route   ::
@@ -21,7 +28,7 @@ const getUsers = asyncHandler(async (req, res) => {
 const getUserById = asyncHandler(async (req, res) => {
 	const userId = req.params.id;
 	const user = await User.findById(userId);
-	console.log(userId);
+	console.log(req.params);
 	debugger;
 	if (user) {
 		res.json(user);
@@ -39,4 +46,4 @@ const getUserById = asyncHandler(async (req, res) => {
 // @route   ::
 // @access  ::
 
-export { getUsers, getUserById };
+export { getUsers, getUserById, createUser };

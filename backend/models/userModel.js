@@ -8,11 +8,13 @@ const userSchema = mongoose.Schema(
 			// here we can add a default filepath to a basic user image if not changed.
 		},
 		username: {
+			//The username is like a twitter tag, this will stay the same and _cannot_ be changed.
 			type: String,
 			required: true,
 			unique: true,
 		},
 		name: {
+			//Their name will be the display name and can be changed whenever.
 			type: String,
 			required: true,
 		},
