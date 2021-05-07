@@ -5,6 +5,9 @@ const GlobalStyle = createGlobalStyle`
     --lightest-slate: #ccd6f6;
     --pink: pink;
     --gold: gold;
+
+    --nav-width-collapsed:4rem;
+    --nav-width-open:10rem;
   }
 
   html {
@@ -19,6 +22,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Source Sans Pro', sans-serif;
   } 
 
+  body  {
+    min-height: 100vh;
+    background-color: lightblue;
+  }
 `;
 
 export default GlobalStyle;

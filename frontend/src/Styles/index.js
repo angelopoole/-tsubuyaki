@@ -1,2 +1,2 @@
-export { default as GlobalStyle } from './GlobalStyle';
-export { Container } from './BaseComponents';
+export { default as GlobalStyle } from './Globalstyle';
+export { Container, Button } from './ComponentBase';
